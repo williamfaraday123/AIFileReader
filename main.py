@@ -62,7 +62,7 @@ if dataframes:
     if query and query.strip() and len(selected_files_query) > 0:
         # instantiate llm
         llm = OpenAI(api_token = openapi_key)
-        pandas_ai = PandasAI(llm, conversational=False)
+        pandas_ai = PandasAI(llm, conversational=False, enable_cache=False)
         try:
             response = pandas_ai([dataframes[selected_file_query] for selected_file_query in selected_files_query], prompt = query)
             #st.write("response type:", type(response)) #for debugging
